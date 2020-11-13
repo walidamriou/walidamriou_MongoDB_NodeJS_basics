@@ -1,0 +1,20 @@
+{
+  "name": "walidamriou_MongoDB_NodeJS_basics",
+  "version": "1.0.0",
+  "description": "A small project to introduce MongoDB with NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walidamriou/walidamriou_MongoDB_NodeJS_basics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walidamriou/walidamriou_MongoDB_NodeJS_basics/issues"
+  },
+  "homepage": "https://github.com/walidamriou/walidamriou_MongoDB_NodeJS_basics#readme"
+}
