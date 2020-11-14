@@ -52,15 +52,10 @@ MongoClient.connect(url,
         });
     }
 
-    // Insert
+    // Insert one document
 
-    var ThedataWantInsert = { name: "Hanson", age: "37" };
-    
-    db.collection("friends").insertOne(ThedataWantInsert, function(err, res) {
-        if (err) throw err;
-        console.log("1 document inserted");
-        //db.close();
-    });
+    let ThedataWantInsert = { name: "Hanson", age: "37" };
+    InsertOneDocument(db,CollectionName,ThedataWantInsert);
 
 });
 
@@ -97,3 +92,12 @@ function CreateACollection(db, dbName, collectionName){
     });
 };
 
+// Insert one document
+function InsertOneDocument(db,collectionName,Thedata){
+    db.collection(collectionName).insertOne(Thedata, function(err, res) {
+        if (err) throw err;
+        console.log("1 document inserted");
+        console.log(res.ops);
+        //db.close();
+    });
+}
