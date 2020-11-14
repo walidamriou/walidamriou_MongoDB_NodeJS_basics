@@ -2,7 +2,7 @@
 A small project to introduce MongoDB with NodeJS
 
 ### introduction
-__MongoDB__ is a NoSQL database, cross-platform,  and document-oriented database management system (DBMS). It uses documents that are in JSON-like format, known as BSON, which is the binary encoding of JSON. It developed as __an open-source project__ by MongoDB Inc. The motivation to use MongoDB is to implement a data store that provides high performance, high availability, and automatic scaling. It is extremely simple to install and implement. also MongoDB is fast for storing certain types. In this project, I have Implemented CRUD Operations (Create, read, update and delete from MongoDB database). in MongoDB, we say (Insert, Find, Update, and Delete).
+__MongoDB__ is a NoSQL database, cross-platform,  and document-oriented database management system (DBMS). It uses documents that are in JSON-like format, known as BSON, which is the binary encoding of JSON. It developed as __an open-source project__ by MongoDB Inc. The motivation to use MongoDB is to implement a data store that provides high performance, high availability, and automatic scaling. It is extremely simple to install and implement. also MongoDB is fast for storing certain types. In this project, I have Implemented CRUD Operations (Create, read, update and delete from MongoDB database [see here](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete "see here") ). in MongoDB, we say (Insert, Find, Update, and Delete).
 
 #### MongoDB terminology
 MongoDB has it's terminology, to fast familiar with it, here's a quick translation cheat sheet:  
