@@ -25,6 +25,8 @@ MongoDB has it's terminology, to fast familiar with it, here's a quick translati
 This document provide instructions to install MongoDB Community Edition on your operating system:  
 https://docs.mongodb.com/manual/administration/install-community/  
 
+### MongoDB API nodejs
+http://mongodb.github.io/node-mongodb-native/3.1/api/Db.html#listCollections
 
 ### Copyright CC 2020 Walid Amriou
 
