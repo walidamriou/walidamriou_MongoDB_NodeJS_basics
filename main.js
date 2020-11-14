@@ -74,6 +74,21 @@ MongoClient.connect(url,
 
     InsertMultipleDocument(db,CollectionName,TheMultidataWantInsert);
 
+
+    // specify the _id field of the data that we want to insert 
+    var TheMultidataWantInsert2 = [
+        { _id: 001,name: 'Martyn', age: 11},
+        { _id: 100,name: 'Abdulrahman', age: 25},
+        { _id: 111,name: 'Leona', age: 52},
+        { _id: 120,name: 'Sila', age: 14},
+        { _id: 002,name: 'Michael', age: 6},
+        { _id: 113,name: 'Adelina', age: 45},
+        { _id: 200,name: 'Sila', age: 50}
+    ];
+    
+    InsertMultipleDocument(db,CollectionName,TheMultidataWantInsert2);
+
+
 });
 
 
