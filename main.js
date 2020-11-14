@@ -54,8 +54,25 @@ MongoClient.connect(url,
 
     // Insert one document
 
-    let ThedataWantInsert = { name: "Hanson", age: "37" };
+    let ThedataWantInsert = { name: "Hanson", age: 37 };
     InsertOneDocument(db,CollectionName,ThedataWantInsert);
+
+    var TheMultidataWantInsert = [
+      { name: 'Martyn', age: 15},
+      { name: 'Abdulrahman', age: 22},
+      { name: 'Leona', age: 60},
+      { name: 'Myrtle', age: 20},
+      { name: 'Michael', age: 35},
+      { name: 'Adelina', age: 40},
+      { name: 'Sila', age: 26},
+      { name: 'Ross', age: 85},
+      { name: 'Tariq', age: 23},
+      { name: 'Darcie', age: 10},
+      { name: 'Ben', age: 13},
+      { name: 'William', age: 96}
+    ];
+
+    InsertMultipleDocument(db,CollectionName,TheMultidataWantInsert);
 
 });
 
@@ -94,10 +111,20 @@ function CreateACollection(db, dbName, collectionName){
 
 // Insert one document
 function InsertOneDocument(db,collectionName,Thedata){
-    db.collection(collectionName).insertOne(Thedata, function(err, res) {
+    db.collection(collectionName).insertOne(Thedata, function(err, result) {
         if (err) throw err;
         console.log("1 document inserted");
-        console.log(res.ops);
+        // The result object contains information about how the insertion affected the database
+        console.log(result.ops);
+        //db.close();
+    });
+}
+
+// Insert Multiple Documents
+function InsertMultipleDocument(db,collectionName,Thedata){
+    db.collection(collectionName).insertMany(Thedata, function(err, result) {
+        if (err) throw err;
+        console.log("Number of documents inserted: " + result.insertedCount);
         //db.close();
     });
 }
