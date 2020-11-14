@@ -25,6 +25,11 @@ MongoDB has it's terminology, to fast familiar with it, here's a quick translati
 This document provide instructions to install MongoDB Community Edition on your operating system:  
 https://docs.mongodb.com/manual/administration/install-community/  
 
+### MongoDB Compass
+You can use MongoDB Compass to explore and manipulate your MongoDB data. It is a GUI for MongoDB. Visually explore your data. Run ad hoc queries in seconds. Interact with your data with full CRUD functionality. View and optimize your query performance. Available on Linux, Mac, or Windows. Compass empowers you to make smarter decisions about indexing, document validation, and more.  
+For this project, use it to confirm that your codes are run correctly.
+https://www.mongodb.com/products/compass
+
 ### MongoDB API nodejs
 http://mongodb.github.io/node-mongodb-native/3.1/api/Db.html#listCollections
 
