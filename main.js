@@ -39,36 +39,20 @@ MongoClient.connect(url,
 
     // Create a db instance sharing the current socket connections
     const db = client.db(DatabaseName);
-    CheckACollectionIfexist(db, DatabaseName, "friends");
-    //CreateACollection(db, DatabaseName, "friends");
-
-    // Close the db and its underlying connections
-    /*
-    client.close(
-        (err) => {
+    
+    if(CheckACollectionIfexist(db, DatabaseName, "friends") === 0){
+        CreateACollection(db, dbName, collectionName);
+        // Close the db and its underlying connections
+        client.close((err) => {
             if(err){
-                throw err;
-                // Go out from connect when there is an error
-                return;
+                throw err;return;
             }
             console.log('Database connection successful close');
-        }
-    );
-            */
-
+        });
+    }
 });
 
-
-function CreateACollection(db, dbName, collectionName){
-    db.createCollection(collectionName, function(err, res) {
-        if (err) throw err;
-        console.log("Collection created!");
-        db.close();
-    });
-};
-
-
-
+// Function to check a collection if exist
 function CheckACollectionIfexist(db, dbName, collectionName){
     db.listCollections().toArray(function(err, items) {
         let CollectionsNumber = items.length;
@@ -80,10 +64,20 @@ function CheckACollectionIfexist(db, dbName, collectionName){
         }
         if(CollectionExist === 1 ){
             console.log("Collection exist!\n");
+            return 1;
         } 
         else {
-            //function CreateACollection(db, dbName, collectionName);
+            return 0;
         }
     })
 }
+
+// Function to create a collection
+function CreateACollection(db, dbName, collectionName){
+    db.createCollection(collectionName, function(err, res) {
+        if (err) throw err;
+        console.log("Collection created!");
+        db.close();
+    });
+};
 
