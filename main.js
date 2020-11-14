@@ -28,6 +28,8 @@ MongoClient.connect(url,
     {useNewUrlParser: true,useUnifiedTopology: true}, 
     (err, client) => {
     if(err){
+        // NodeJS will throw an exception (throw an error). It will actually create an Error 
+        // object with two properties: name and message.
         throw err;
         // Go out from connect when there is an error
         return;
@@ -38,11 +40,7 @@ MongoClient.connect(url,
     // Create a db instance sharing the current socket connections
     const db = client.db(dbName);
     
-    db.createCollection("friends", function(err, res) {
-        if (err) throw err;
-        console.log("Collection created!");
-        db.close();
-    });
+    createCollection(db, dbName, "friends");
 
     // Close the db and its underlying connections
     /*
@@ -60,3 +58,12 @@ MongoClient.connect(url,
 
     }
 );
+
+function createCollection(db, dbName, collectionName){
+    
+    db.createCollection(collectionName, function(err, res) {
+        if (err) throw err;
+        console.log("Collection created!");
+        db.close();
+    });
+};
