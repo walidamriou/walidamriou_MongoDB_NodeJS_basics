@@ -15,7 +15,7 @@ MongoDB has it's terminology, to fast familiar with it, here's a quick translati
 | Database | Database  | A set of documents. This is similar to a table in an SQL database. However, unlike an SQL database, a collection does not have a set structure or pre-configured data types |   
 | Table | Collection  |   |   
 | Index | Index  |   |   
-| Row | Collection  | Document (A JSON-like object. This is similar to a row in an SQL database. A JSON object may also contain child objects, an array, etc.)  |   
+| Row | Document  | Document (A JSON-like object. This is similar to a row in an SQL database. A JSON object may also contain child objects, an array, etc.)  |   
 | Column | Field  |   |   
 | Joining | Linking & Embedding  |   |   
 | Partition	Sharding | Range Partition  |   |   
