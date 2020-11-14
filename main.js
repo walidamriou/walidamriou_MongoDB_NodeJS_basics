@@ -56,8 +56,12 @@ MongoClient.connect(url,
 
     let ThedataWantInsert = { name: "Hanson", age: 37 };
     InsertOneDocument(db,CollectionName,ThedataWantInsert);
+    
+    // Insert multi data 
+    // Note tthat when we don't specify an _id field, then MongoDB will add one for you and assign a unique 
+    // id for each document.
 
-    var TheMultidataWantInsert = [
+    let TheMultidataWantInsert = [
       { name: 'Martyn', age: 15},
       { name: 'Abdulrahman', age: 22},
       { name: 'Leona', age: 60},
@@ -76,7 +80,7 @@ MongoClient.connect(url,
 
 
     // specify the _id field of the data that we want to insert 
-    var TheMultidataWantInsert2 = [
+    let TheMultidataWantInsert2 = [
         { _id: 001,name: 'Martyn', age: 11},
         { _id: 100,name: 'Abdulrahman', age: 25},
         { _id: 111,name: 'Leona', age: 52},
