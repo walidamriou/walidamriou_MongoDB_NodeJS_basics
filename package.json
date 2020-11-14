@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/walidamriou/walidamriou_MongoDB_NodeJS_basics/issues"
   },
-  "homepage": "https://github.com/walidamriou/walidamriou_MongoDB_NodeJS_basics#readme"
+  "homepage": "https://github.com/walidamriou/walidamriou_MongoDB_NodeJS_basics#readme",
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
 }
