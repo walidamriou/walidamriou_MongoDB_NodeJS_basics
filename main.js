@@ -10,17 +10,18 @@ Last update: November 2020
 
 // import MongoDB module:
 const mongodb = require('mongodb');
-
 // Instantiate a client
 const MongoClient = mongodb.MongoClient;
-
-// Connecting to the Database
-
-// Connection URL 
-const url = 'mongodb://localhost:27017'; // The localhost is 127.0.0.1
-
 // Database Name
 const DatabaseName = 'walidamriou_MongoDB_NodeJS_basics';
+// Collection name
+const CollectionName = "friends";
+// mongodb server local / Connection URL 
+const url = 'mongodb://localhost:27017'; // The localhost is 127.0.0.1
+
+
+
+// Connecting to the Database
 
 // Connect to MongoDB using a url
 MongoClient.connect(url, 
@@ -28,8 +29,7 @@ MongoClient.connect(url,
     {useNewUrlParser: true,useUnifiedTopology: true}, 
     (err, client) => {
     if(err){
-        // NodeJS will throw an exception (throw an error). It will actually create an Error 
-        // object with two properties: name and message.
+        // NodeJS will throw an exception (throw an error). It will actually create an Error object with two properties: name and message.
         throw err;
         // Go out from connect when there is an error
         return;
@@ -37,10 +37,18 @@ MongoClient.connect(url,
 
     console.log('Database connection successful');
 
+
     // Create a db instance sharing the current socket connections
-    const db = client.db(DatabaseName);
-        
-    if(CheckACollectionIfexist(db, DatabaseName, "friends") === 0){
+    const db = client.db();
+    
+    let DatabaseAdmin = db.admin();
+    // List all the available databases
+    DatabaseAdmin.listDatabases(function(err, result) {
+      console.log(result.databases);
+      //db.close();
+    });
+
+    if(CheckACollectionIfexist(db, DatabaseName, CollectionName) === 0){
         CreateACollection(db, dbName, collectionName);
         // Close the db and its underlying connections
         client.close((err) => {
