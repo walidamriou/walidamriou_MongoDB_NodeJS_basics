@@ -39,8 +39,8 @@ MongoClient.connect(url,
 
     // Create a db instance sharing the current socket connections
     const db = client.db(DatabaseName);
-    
-    CreateACollection(db, DatabaseName, "friends");
+    CheckACollectionIfexist(db, DatabaseName, "friends");
+    //CreateACollection(db, DatabaseName, "friends");
 
     // Close the db and its underlying connections
     /*
@@ -56,11 +56,10 @@ MongoClient.connect(url,
     );
             */
 
-    }
-);
+});
+
 
 function CreateACollection(db, dbName, collectionName){
-    
     db.createCollection(collectionName, function(err, res) {
         if (err) throw err;
         console.log("Collection created!");
@@ -68,6 +67,23 @@ function CreateACollection(db, dbName, collectionName){
     });
 };
 
-function CheckACollectionIfexist(){
 
-};
+
+function CheckACollectionIfexist(db, dbName, collectionName){
+    db.listCollections().toArray(function(err, items) {
+        let CollectionsNumber = items.length;
+        let CollectionExist = 0;
+        for(let i=0;i<CollectionsNumber;i++){
+            if(items[i].name == collectionName){
+                CollectionExist = 1;
+            }
+        }
+        if(CollectionExist === 1 ){
+            console.log("Collection exist!\n");
+        } 
+        else {
+            //function CreateACollection(db, dbName, collectionName);
+        }
+    })
+}
+
