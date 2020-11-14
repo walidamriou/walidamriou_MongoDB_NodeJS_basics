@@ -20,7 +20,7 @@ const MongoClient = mongodb.MongoClient;
 const url = 'mongodb://localhost:27017'; // The localhost is 127.0.0.1
 
 // Database Name
-const dbName = 'userdb';
+const dbName = 'walidamriou_MongoDB_NodeJS_basics';
 
 // Connect to MongoDB using a url
 MongoClient.connect(url, 
@@ -38,9 +38,16 @@ MongoClient.connect(url,
     // Create a db instance sharing the current socket connections
     const db = client.db(dbName);
     
+    db.createCollection("friends", function(err, res) {
+        if (err) throw err;
+        console.log("Collection created!");
+        db.close();
+    });
+
     // Close the db and its underlying connections
+    /*
     client.close(
-        (err, client) => {
+        (err) => {
             if(err){
                 throw err;
                 // Go out from connect when there is an error
@@ -49,5 +56,17 @@ MongoClient.connect(url,
             console.log('Database connection successful close');
         }
     );
+            */
+
     }
 );
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("mydb");
+    dbo.createCollection("customers", function(err, res) {
+      if (err) throw err;
+      console.log("Collection created!");
+      db.close();
+    });
+  });
