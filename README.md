@@ -39,5 +39,4 @@ __Under the following terms:__
 
 - __No additional restrictions__ You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
-
 the software or Code or Scripts or any files in this source is provided "as is" and the author disclaims all warranties with regard to this files including all implied warranties of merchantability and fitness. in no event shall the author be liable for any special, direct, indirect, or consequential damages or any damages whatsoever resulting from loss of use, data or profits, whether in an action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of this software or code or scripts or any files in this source.
