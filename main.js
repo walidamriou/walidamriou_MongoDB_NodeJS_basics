@@ -39,7 +39,7 @@ MongoClient.connect(url,
 
     // Create a db instance sharing the current socket connections
     const db = client.db(DatabaseName);
-    
+        
     if(CheckACollectionIfexist(db, DatabaseName, "friends") === 0){
         CreateACollection(db, dbName, collectionName);
         // Close the db and its underlying connections
