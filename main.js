@@ -37,17 +37,10 @@ MongoClient.connect(url,
 
     console.log('Database connection successful');
 
-
     // Create a db instance sharing the current socket connections
-    const db = client.db();
-    
-    let DatabaseAdmin = db.admin();
-    // List all the available databases
-    DatabaseAdmin.listDatabases(function(err, result) {
-      console.log(result.databases);
-      //db.close();
-    });
+    const db = client.db(DatabaseName);
 
+    // check if "Friends" exist, and if not exist, so create it! 
     if(CheckACollectionIfexist(db, DatabaseName, CollectionName) === 0){
         CreateACollection(db, dbName, collectionName);
         // Close the db and its underlying connections
@@ -56,9 +49,14 @@ MongoClient.connect(url,
                 throw err;return;
             }
             console.log('Database connection successful close');
+            
         });
     }
 });
+
+
+
+
 
 // Function to check a collection if exist
 function CheckACollectionIfexist(db, dbName, collectionName){
