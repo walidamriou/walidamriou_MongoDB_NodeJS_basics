@@ -49,9 +49,19 @@ MongoClient.connect(url,
                 throw err;return;
             }
             console.log('Database connection successful close');
-            
         });
     }
+
+    // Insert
+
+    var ThedataWantInsert = { name: "Hanson", age: "37" };
+    
+    db.collection("friends").insertOne(ThedataWantInsert, function(err, res) {
+        if (err) throw err;
+        console.log("1 document inserted");
+        //db.close();
+    });
+
 });
 
 
