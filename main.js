@@ -96,10 +96,11 @@ MongoClient.connect(url,
 
     //DisplayAllCollection(db,CollectionName);
     // Display all element has 'Martyn' as a name 
-    //DisplayElementAllCollection(db,CollectionName,'Martyn');
+    //DisplayElementCollection(db,CollectionName,'Martyn');
+    // To find only the documents where the "name" field starts with the letter "M"
+    //DisplayElementCollection(db,CollectionName,{name:/^M/});
     // Display all element has age: 50 
-    //DisplayElementCollection(db,CollectionName,);
-    DisplayPartfromCollection(db,CollectionName);
+    //DisplayPartfromCollection(db,CollectionName);
 });
 
 
@@ -163,6 +164,7 @@ function DisplayAllCollection(db,collectionName){
       });
 }
 
+// find with Query, TheElement is Query
 function DisplayElementCollection(db,collectionName,TheElement){
     db.collection(CollectionName).find({TheElement}).toArray(function(err, result) {
         if (err) throw err;
@@ -171,8 +173,10 @@ function DisplayElementCollection(db,collectionName,TheElement){
       });
 }
 
+// The projection object describes which fields to include in the result
+// specify the fields by 0 or 1 
 function DisplayPartfromCollection(db,collectionName){
-    db.collection(CollectionName).find({}, { projection: {age: 50 } }).toArray(function(err, result) {
+    db.collection(CollectionName).find({}, { projection: {_id:0,age:1} }).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
         //db.close();
