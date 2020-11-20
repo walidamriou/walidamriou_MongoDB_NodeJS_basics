@@ -80,9 +80,11 @@ MongoClient.connect(url,
 
 
     // specify the _id field of the data that we want to insert 
+    // Note that to test this part you need to remove the database
+    // because you can't create a data with the same id
     let TheMultidataWantInsert2 = [
-        { _id: 001,name: 'Martyn', age: 11},
-        { _id: 100,name: 'Abdulrahman', age: 25},
+        { _id: 112,name: 'Martyn', age: 11},
+        { _id: 110,name: 'Abdulrahman', age: 25},
         { _id: 111,name: 'Leona', age: 52},
         { _id: 120,name: 'Sila', age: 14},
         { _id: 002,name: 'Michael', age: 6},
@@ -90,9 +92,13 @@ MongoClient.connect(url,
         { _id: 200,name: 'Sila', age: 50}
     ];
     
-    InsertMultipleDocument(db,CollectionName,TheMultidataWantInsert2);
+    //InsertMultipleDocument(db,CollectionName,TheMultidataWantInsert2);
 
-
+    //DisplayAllCollection(db,CollectionName);
+    // Display all element has 'Martyn' as a name 
+    //DisplayElementAllCollection(db,CollectionName,'Martyn');
+    // Display all element has age: 50 
+    DisplayElementAllCollection(db,CollectionName,50);
 });
 
 
@@ -146,4 +152,20 @@ function InsertMultipleDocument(db,collectionName,Thedata){
         console.log("Number of documents inserted: " + result.insertedCount);
         //db.close();
     });
+}
+
+function DisplayAllCollection(db,collectionName){
+    db.collection(CollectionName).find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        //db.close();
+      });
+}
+
+function DisplayElementAllCollection(db,collectionName,TheElement){
+    db.collection(CollectionName).find({TheElement}).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        //db.close();
+      });
 }
