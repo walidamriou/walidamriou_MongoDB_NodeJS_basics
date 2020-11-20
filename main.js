@@ -98,7 +98,8 @@ MongoClient.connect(url,
     // Display all element has 'Martyn' as a name 
     //DisplayElementAllCollection(db,CollectionName,'Martyn');
     // Display all element has age: 50 
-    DisplayElementAllCollection(db,CollectionName,50);
+    //DisplayElementCollection(db,CollectionName,);
+    DisplayPartfromCollection(db,CollectionName);
 });
 
 
@@ -162,10 +163,19 @@ function DisplayAllCollection(db,collectionName){
       });
 }
 
-function DisplayElementAllCollection(db,collectionName,TheElement){
+function DisplayElementCollection(db,collectionName,TheElement){
     db.collection(CollectionName).find({TheElement}).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
         //db.close();
       });
 }
+
+function DisplayPartfromCollection(db,collectionName){
+    db.collection(CollectionName).find({}, { projection: {age: 50 } }).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        //db.close();
+      });
+}
+
